@@ -1,7 +1,7 @@
 import express from "express";
 import { connect, connection } from "mongoose";
 import dotenv from "dotenv";
-import { errorHandler } from "middlewares/errorHandlers";
+import { errorHandler } from "./middlewares/errorHandlers";
 
 dotenv.config();
 
