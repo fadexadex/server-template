@@ -1,6 +1,7 @@
 import express from "express";
 import { connect, connection } from "mongoose";
 import dotenv from "dotenv";
+import { errorHandler } from "middlewares/errorHandlers";
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ export class Server {
   private enableMiddlewares() {
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
+    this.app.use(errorHandler); 
   }
   private connectToDatabase() {
     connect(process.env.MONGO_DB_URL);
