@@ -1,4 +1,4 @@
-import { Server } from "./server_class";
+import { Server } from "./app.controller";
 
 const port: number = Number(process.env.PORT) || 3000;
 
