@@ -22,4 +22,13 @@ export class AuthController {
       next(error);
     }
   };
+
+  getMe = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const user = await authService.getMe(req.user.email);
+      res.status(StatusCodes.OK).json(user);
+    } catch (error) {
+      next(error);
+    }
+  };
 }

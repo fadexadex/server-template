@@ -33,4 +33,8 @@ export class AuthService {
     const newUser = await authRepo.registerUser(data);
     return sanitizeUserAndGrantToken(newUser);
   };
+
+  getMe = async (email: string) => {
+    return authRepo.findUserByEmail(email);
+  };
 }

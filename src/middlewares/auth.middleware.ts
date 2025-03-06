@@ -25,13 +25,13 @@ export const adminGuard = (req: Request, res: Response, next: NextFunction) => {
 };
 
 
-export const validateUserRequest = ( 
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
-  if (req.user.id !== req.params.userId) {
-    return next(new AppError("Unauthorized", StatusCodes.FORBIDDEN));
-  }
-  next();
-}
+// export const validateUserRequest = ( 
+//   req: Request,
+//   res: Response,
+//   next: NextFunction
+// ) => {
+//   if (req.user.id !== req.params.userId) {
+//     return next(new AppError("Unauthorized", StatusCodes.FORBIDDEN));
+//   }
+//   next();
+// }
