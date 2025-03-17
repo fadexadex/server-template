@@ -16,6 +16,7 @@ export class AuthController {
 
   login = async (req: Request, res: Response, next: NextFunction) => {
     try {
+      console.log(req.body);
       const user = await authService.login(req.body);
       res.status(StatusCodes.OK).json(user);
     } catch (error) {

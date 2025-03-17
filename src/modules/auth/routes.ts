@@ -1,18 +1,19 @@
 import { AuthController } from "./controller";
 import { Router } from "express";
-import { AuthValidator } from "../../middlewares";
 import { authGuard } from "../../middlewares";
+import { RegisterDto, LoginDto } from "./dto";
+import { validateDto } from "../../middlewares";
+
 
 const authController = new AuthController();
-const authValidator = new AuthValidator();
 const router = Router();
 
 router.post(
   "/register",
-  authValidator.validateRegisterBody,
+  validateDto(RegisterDto),
   authController.register
 );
-router.post("/login", authValidator.validateLoginBody, authController.login);
+router.post("/login", validateDto(LoginDto), authController.login);
 router.get("/me", authGuard, authController.getMe);
 
 export default router;
